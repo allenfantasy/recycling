@@ -4,13 +4,68 @@
     <title>Getting Started Extension's Popup</title>
     <style></style>
     <script src="jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="json2xml.js"></script>
     <script src="popup.js"></script>
+    <style>
+      body {
+        width: 240px;
+      }
+      .body-wrapper {
+        margin: 10px;
+      }
+      #search-key {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      #score {
+        width: 100%;
+        font-size: 20px;
+      }
+      #score .helper-text {
+        font-size: 15px;
+      }
+      #score #score-input {
+        width: 150px;
+        margin-top: 5px;
+      }
+      #actions {
+        width: 100%;
+        margin-top: 10px;
+      }
+      #actions > button {
+        margin: 2px;
+      }
+      #actions #confirm {
+        float: left;
+      }
+      #actions #skip {
+        float: right;
+      }
+    </style>
   </head>
   <body>
-  <div id="search-key"></div>
-  <div id="url"></div>
-  <div id="title"></div>
-  <button id="test">Test</button>
+  <div class="body-wrapper">
+    <div id="key">
+      <div id="key-helper">You are searching:</div>
+      <div id="search-key"></div>
+    </div>
+    <div id="score" class="pull-left">
+      <div class="helper-text">Is this page useful?</div>
+      <input id="score-input" type="number" step="0.1"> / 10
+    </div>
+    <div id="actions" class="pull-left">
+      <button type="button" class="btn btn-success" id="confirm">
+        <span class="glyphicon glyphicon-ok"></span>
+      </button>
+      <button type="button" class="btn btn-default" id="skip">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
+  </div>
+  <!--<div id="url"></div>-->
+  <!--<div id="title"></div>-->
   </body>
 </html>
 

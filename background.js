@@ -60,3 +60,9 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
 chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {
   Recycle.setCurrentTab();
 });
+
+function jumpToGoogle() {
+  chrome.tabs.create({
+    url: 'http://www.google.com'
+  })
+}
