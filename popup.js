@@ -7,7 +7,9 @@
 $(document).ready(function() {
   var bg = chrome.extension.getBackgroundPage()
     , Recycle = bg.Recycle;
-  $('#search-key').html(Recycle.getKey());
+  $('#search-key').html("Key: " + Recycle.getKey());
+  $('#url').html("URL: " + Recycle.getUrl())
+  $('#title').html("Title: " + Recycle.getTitle());
   $('#test').on('click', function() {
     // send AJAX req to backend
     $.ajax({

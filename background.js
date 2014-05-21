@@ -43,16 +43,20 @@ var Recycle = {
 chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
   console.log(sender.tab ? "from a content script: " + sender.tab.url : "from the extension");
 
-  Recycle.setKey(req.key);
+  if (req.key) {
+    Recycle.setKey(req.key);
+  }
 
-  if (sender.tab) Recycle.setUrl(sender.tab.url);
+  //if (sender.tab) Recycle.setUrl(sender.tab.url);
 
   Recycle.setCurrentTab();
 
   sendResponse({
-    google: Recycle.inGoogle(),
-    url: Recycle.getUrl(),
     key: Recycle.getKey()
   });
 
+});
+
+chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {
+  Recycle.setCurrentTab();
 });
